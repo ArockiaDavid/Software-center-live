@@ -9,6 +9,7 @@ import {
   Alert
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import config from '../config';
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const AdminLoginPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch(`${config.apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import EngineerHeader from '../components/EngineerHeader';
+import config from '../config';
 
 const EngineerDashboardPage = () => {
   const [users, setUsers] = useState([]);
@@ -37,7 +38,7 @@ const EngineerDashboardPage = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3007/api/users', {
+      const response = await fetch(`${config.apiUrl}/api/users`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

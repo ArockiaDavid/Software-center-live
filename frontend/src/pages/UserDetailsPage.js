@@ -17,6 +17,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AdminHeader from '../components/AdminHeader';
+import config from '../config';
 
 const UserDetailsPage = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -62,7 +63,7 @@ const UserDetailsPage = () => {
       };
 
       console.log('Fetching installed software for ID:', userId);
-      const response = await fetch(`http://localhost:3007/api/user-software/user/${userId}`, { headers });
+      const response = await fetch(`${config.apiUrl}/api/user-software/user/${userId}`, { headers });
       if (!response.ok) {
         throw new Error('Failed to fetch installed software');
       }
@@ -91,7 +92,7 @@ const UserDetailsPage = () => {
       };
 
       console.log('Fetching user details for ID:', userId);
-      const response = await fetch(`http://localhost:3007/api/users/${userId}`, { headers });
+      const response = await fetch(`${config.apiUrl}/api/users/${userId}`, { headers });
       if (!response.ok) {
         throw new Error('Failed to fetch user details');
       }

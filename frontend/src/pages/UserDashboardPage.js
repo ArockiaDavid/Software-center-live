@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import { RadialBarChart, RadialBar, ResponsiveContainer, Legend } from 'recharts';
 import AdminHeader from '../components/AdminHeader';
 import Sidebar from '../components/Sidebar';
+import config from '../config';
 
 const COLORS = {
   totalUsers: {
@@ -160,7 +161,7 @@ const UserDashboardPage = () => {
   const fetchSystemInfo = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3007/api/users', {
+      const response = await fetch(`${config.apiUrl}/api/users`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
