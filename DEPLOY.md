@@ -5,10 +5,21 @@ This guide explains how to deploy the Software Center application on an Ubuntu s
 ## Prerequisites
 
 1. Node.js and npm installed on Ubuntu server
-2. PM2 installed globally (`npm install -g pm2`)
-3. Serve installed globally (`npm install -g serve`)
-4. MongoDB instance set up and accessible
-5. Git installed on Ubuntu server
+2. MongoDB instance set up and accessible
+3. Git installed on Ubuntu server
+
+## Initial Setup
+
+1. Install PM2 and serve globally with proper permissions:
+   ```bash
+   # Install PM2
+   sudo npm install -g pm2 --unsafe-perm=true --allow-root
+   sudo chown -R $USER:$(id -gn $USER) /usr/local/lib/node_modules/pm2
+
+   # Install serve
+   sudo npm install -g serve --unsafe-perm=true --allow-root
+   sudo chown -R $USER:$(id -gn $USER) /usr/local/lib/node_modules/serve
+   ```
 
 ## Deployment Steps
 

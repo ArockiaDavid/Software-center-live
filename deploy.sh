@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Check if PM2 is installed
+if ! command -v pm2 &> /dev/null; then
+    echo "PM2 is not installed. Please follow the Initial Setup steps in DEPLOY.md"
+    exit 1
+fi
+
+# Check if serve is installed
+if ! command -v serve &> /dev/null; then
+    echo "serve is not installed. Please follow the Initial Setup steps in DEPLOY.md"
+    exit 1
+fi
+
 # Check if IP address is provided
 if [ -z "$1" ]; then
     echo "Please provide server IP address"
