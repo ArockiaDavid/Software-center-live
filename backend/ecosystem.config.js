@@ -13,8 +13,9 @@ module.exports = {
     env_production: {
       NODE_ENV: 'production',
       PORT: 3007,
-      MONGODB_URI: 'your_production_mongodb_uri',
-      JWT_SECRET: 'your_production_jwt_secret'
+      MONGODB_URI: 'mongodb+srv://admin:admin@cluster0.m4gvu.mongodb.net/software-center',
+        JWT_SECRET: 'your-secret-key',
+        RESET_SECRET:'reset-secret-key',
     }
   }]
 };

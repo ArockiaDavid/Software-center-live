@@ -18,34 +18,30 @@ This guide explains how to deploy the Software Center application on an Ubuntu s
    cd software-center
    ```
 
-2. Install dependencies:
+2. Make the deployment script executable:
    ```bash
-   # Install backend dependencies
-   cd backend
-   npm install --production
-   cd ..
-
-   # Install frontend dependencies and build
-   cd frontend
-   npm install
-   npm run build
-   cd ..
+   chmod +x deploy.sh
    ```
 
-3. Configure environment variables:
-   - Update `ecosystem.config.js` with your MongoDB URI and JWT secret
-   - Update `frontend/.env.production` with your server's IP or domain
-
-4. Start the application with PM2:
-   ```bash
-   pm2 start ecosystem.config.js --env production
+3. Update MongoDB URI and JWT secret in ecosystem.config.js:
+   ```javascript
+   env_production: {
+     MONGODB_URI: 'your-mongodb-uri',
+     JWT_SECRET: 'your-jwt-secret'
+   }
    ```
 
-5. Save PM2 process list and set up startup script:
+4. Run the deployment script with your server's IP:
    ```bash
-   pm2 save
-   pm2 startup
+   ./deploy.sh <server-ip>
    ```
+
+   This script will:
+   - Configure the production environment with your server IP
+   - Install all dependencies
+   - Build the frontend
+   - Start PM2 processes
+   - Set up PM2 startup script
 
 ## Monitoring
 
