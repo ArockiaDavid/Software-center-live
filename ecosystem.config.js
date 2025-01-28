@@ -3,6 +3,7 @@ module.exports = {
     {
       name: 'software-center-backend',
       script: './backend/server.js',
+      node_args: '--max-old-space-size=4096', // Increase Node.js memory limit to 4GB
       env_production: {
         NODE_ENV: 'production',
         PORT: 3007,
@@ -15,6 +16,7 @@ module.exports = {
     {
       name: 'software-center-frontend',
       script: 'serve',
+      node_args: '--max-old-space-size=4096', // Increase Node.js memory limit to 4GB
       env_production: {
         PM2_SERVE_PATH: './frontend/build',
         PM2_SERVE_PORT: 3000,

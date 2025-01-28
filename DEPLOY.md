@@ -7,6 +7,24 @@ This guide explains how to deploy the Software Center application on an Ubuntu s
 1. Node.js and npm installed on Ubuntu server
 2. MongoDB instance set up and accessible
 3. Git installed on Ubuntu server
+4. At least 4GB RAM available on the server
+   ```bash
+   # Check available memory
+   free -h
+   ```
+
+## System Configuration
+
+1. Configure Node.js memory limit (if needed):
+   ```bash
+   # Add to ~/.bashrc or ~/.profile
+   export NODE_OPTIONS="--max-old-space-size=4096"
+   ```
+
+2. Apply changes:
+   ```bash
+   source ~/.bashrc  # or source ~/.profile
+   ```
 
 ## Initial Setup
 

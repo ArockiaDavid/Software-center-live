@@ -37,7 +37,9 @@ npm install
 
 # Build frontend with production environment
 echo "Building frontend..."
+export NODE_OPTIONS="--max-old-space-size=4096"
 npm run build
+unset NODE_OPTIONS
 cd ..
 
 # Start PM2 processes
